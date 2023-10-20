@@ -1,0 +1,98 @@
+<div class=" w-full flex justify-center items-center mx-auto my-8">
+    <div class="flex justify-center items-center">
+        <div class="bg-white p-8 rounded shadow-md w-[1200px] m-auto">
+            <div id="productForm" class="mb-6">
+                <h2 class="text-2xl font-semibold mb-2">Add Product</h2>
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                    <!-- Product Title -->
+                    <div class="mb-4">
+                        <label for="title" class="block text-sm font-medium text-gray-600">Title</label>
+                        <input type="text" id="title" formControlName="title"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('title')?.invalid && productForm.get('title')?.touched"
+                            class="text-red-500 text-sm mt-1">Title is required</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-4">
+                        <label for="description" class="block text-sm font-medium text-gray-600">Description</label>
+                        <textarea id="description" formControlName="description"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200"></textarea>
+                        <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched"
+                            class="text-red-500 text-sm mt-1">Description is required</div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="mb-4">
+                        <label for="price" class="block text-sm font-medium text-gray-600">Price</label>
+                        <input type="number" id="price" formControlName="price"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched"
+                            class="text-red-500 text-sm mt-1">Price is required</div>
+                    </div>
+
+                    <!-- Discount Percentage -->
+                    <div class="mb-4">
+                        <label for="discountPercentage" class="block text-sm font-medium text-gray-600">Discount
+                            Percentage</label>
+                        <input type="number" id="discountPercentage" formControlName="discountPercentage"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="mb-4">
+                        <label for="rating" class="block text-sm font-medium text-gray-600">Rating</label>
+                        <input type="number" id="rating" formControlName="rating"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('rating')?.invalid && productForm.get('rating')?.touched"
+                            class="text-red-500 text-sm mt-1">Rating is required</div>
+                    </div>
+
+                    <!-- Stock -->
+                    <div class="mb-4">
+                        <label for="stock" class="block text-sm font-medium text-gray-600">Stock</label>
+                        <input type="number" id="stock" formControlName="stock"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('stock')?.invalid && productForm.get('stock')?.touched"
+                            class="text-red-500 text-sm mt-1">Stock is required</div>
+                    </div>
+
+                    <!-- Brand -->
+                    <div class="mb-4">
+                        <label for="brand" class="block text-sm font-medium text-gray-600">Brand</label>
+                        <input type="text" id="brand" formControlName="brand"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched"
+                            class="text-red-500 text-sm mt-1">Brand is required</div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="mb-4">
+                        <label for="category" class="block text-sm font-medium text-gray-600">Category</label>
+                        <input type="text" id="category" formControlName="category"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched"
+                            class="text-red-500 text-sm mt-1">Category is required</div>
+                    </div>
+
+                    <!-- Thumbnail URL -->
+                    <div class="mb-4">
+                        <label for="thumbnail" class="block text-sm font-medium text-gray-600">Thumbnail URL</label>
+                        <input type="text" id="thumbnail" formControlName="thumbnail"
+                            class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-200">
+                        <div *ngIf="productForm.get('thumbnail')?.invalid && productForm.get('thumbnail')?.touched"
+                            class="text-red-500 text-sm mt-1">Thumbnail URL is required</div>
+                    </div>
+
+                    <!-- Other form fields go here, adjust as per your Product interface -->
+
+                    <!-- Submit Button -->
+                    <button type="submit" [disabled]="productForm.invalid" [class.bg-indigo-500]="!productForm.invalid"
+                        [class.bg-gray-300]="productForm.invalid"
+                        class="w-full text-white p-2 rounded focus:outline-none focus:ring focus:ring-indigo-200">Add
+                        Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

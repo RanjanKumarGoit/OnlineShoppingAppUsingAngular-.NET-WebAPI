@@ -1,0 +1,22 @@
+<div class="bg-gray-100 py-8">
+    <div class="max-w-[75%] mx-auto bg-white p-6 rounded shadow-lg">
+        <h2 class="text-2xl font-semibold mb-6">Your Orders</h2>
+
+        <div class="grid grid-cols-5 border-b-2 border-gray-200 pb-4 mb-4">
+            <div class="font-semibold">Product</div>
+            <div class="text-center font-semibold">Quantity</div>
+            <div class="text-center font-semibold">Price</div>
+            <div class="text-center font-semibold">Amount</div>
+            <div class="text-center font-semibold">Status</div>
+        </div>
+
+        <!-- Sample data rendering (replace this with your actual data binding logic) -->
+        <div *ngFor="let orderItem of orderData" class="grid grid-cols-5 gap-2 py-2 border-b border-gray-200">
+            <div>{{orderItem.product.title}}</div>
+            <div class="text-center">{{orderItem.quantity}}</div>
+            <div class="text-center">{{orderItem.product.price}}</div>
+            <div class="text-center">{{orderItem.product.price * orderItem.quantity}}</div>
+            <div class="text-center">{{orderItem.status}}</div>
+        </div>
+    </div>
+</div>

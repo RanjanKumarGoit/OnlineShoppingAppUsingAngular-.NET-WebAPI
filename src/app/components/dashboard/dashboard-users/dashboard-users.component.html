@@ -1,0 +1,33 @@
+<!-- user-list.component.html -->
+
+<section class="w-[1200px] mx-auto p-6 font-mono">
+    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+              <th class="px-4 py-3">Id</th>
+              <th class="px-4 py-3">Name</th>
+              <th class="px-4 py-3">Email</th>
+              <th class="px-4 py-3">Phone</th>
+              <th class="px-4 py-3">Country</th>
+              <th class="px-4 py-3">State</th>
+              <th class="px-4 py-3">City</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white h-[70vh]">
+            <tr *ngFor="let user of users" class="text-gray-700">
+              <td class="px-4 py-3 border">{{ user?.id }}</td>
+              <td class="px-4 py-3 border">{{ user?.name }}</td>
+              <td class="px-4 py-3 border">{{ user?.email }}</td>
+              <td class="px-4 py-3 border">{{ user?.phone }}</td>
+              <td class="px-4 py-3 border">{{ user?.address?.country }}</td>
+              <td class="px-4 py-3 border">{{ user?.address?.state }}</td>
+              <td class="px-4 py-3 border">{{ user?.address?.city }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  

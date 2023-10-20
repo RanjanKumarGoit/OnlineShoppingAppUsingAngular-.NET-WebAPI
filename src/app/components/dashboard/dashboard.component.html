@@ -1,0 +1,15 @@
+<div class="flex">
+    <!-- Sidebar -->
+    <div class="w-[250px] max-h-[500vh] flex flex-col gap-4 bg-[#2d3748] text-white p-[16px]">
+      <div class="sidebar-menu-item"><a routerLink="/dashboard/dashboard-home">Dashboard Home</a></div>
+      <div class="sidebar-menu-item"><a routerLink="/dashboard/dashboard-products">Dashboard Products</a></div>
+      <div class="sidebar-menu-item"><a routerLink="/dashboard/dashboard-users">Dashboard Users</a></div>
+      <div class="sidebar-menu-item"><a routerLink="/dashboard/dashboard-add-product">Add Product</a></div>
+    </div>
+  
+    <!-- Main content area with router outlet -->
+    <div class="p-[20px]">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

@@ -1,0 +1,25 @@
+<!-- Add this input field for search -->
+
+<div *ngIf="!loading; else loadingProducts" class="bg-blue-100 py-10">
+    <div class="px-[10%] py-5 flex justify-between mb-3">
+        <select [(ngModel)]="selectedCategory" class='w-[250px] h-[40px] px-[10px] border rounded-full border-gray-500 bg-white appearance-none'>
+            <option value="">All Categories</option>
+            <option value="laptops">Laptops</option>
+            <option value="smartphones">Smartphones</option>
+            <option value="home-decoration">Home Decoration</option>
+            <option value="skincare">Skincare</option>
+            <option value="fragrances">Fragrances</option>
+            <option value="groceries">Groceries</option>
+          </select>
+        <input type="text" [(ngModel)]="searchText" placeholder="Search products..." class="py-2 px-4 border rounded-full border-gray-500 w-[20%] outline-none">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-[95%] m-auto gap-5 min-h-[80vh]">
+        <div *ngFor="let product of filterProducts()" class="flex">
+            <app-single-product [product]="product"></app-single-product>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingProducts>
+    <p>Loading products...</p>
+</ng-template>

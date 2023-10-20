@@ -1,0 +1,44 @@
+<div class="bg-gray-100 py-8">
+    <div class="max-w-[75%] mx-auto bg-white p-6 rounded shadow-lg">
+        <h2 class="text-2xl font-semibold mb-6">Your Cart</h2>
+
+        <div class="grid grid-cols-6 border-b-2 border-gray-200 pb-4 mb-4">
+            <div class="col-span-2 font-semibold">Product</div>
+            <div class="text-center font-semibold">Quantity</div>
+            <div class="text-center font-semibold">Amount</div>
+            <div class="text-center font-semibold">Total</div>
+            <div class="text-center font-semibold">Actions</div>
+        </div>
+
+        <!-- Sample data rendering (replace this with your actual data binding logic) -->
+        <div *ngFor="let cartItem of cartData[0]?.cartItems"
+            class="grid grid-cols-6 gap-2 py-2 border-b border-gray-200">
+            <div class="col-span-2">{{cartItem.product.title}}</div>
+            <div class="flex gap-4 justify-center items-center">
+                <div (click)="decreaseCartQuantity(cartItem.product.id)">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">-</button>
+                </div>
+                <div class="text-center">{{cartItem.quantity}}</div>
+                <div (click)="increaseCartQuantity(cartItem.product.id)">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">+</button>
+                </div>
+            </div>
+            <div class="text-center">Rs. {{cartItem.product.price}}</div>
+            <div class="text-center">Rs. {{cartItem.product.price * cartItem.quantity}}</div>
+            <div class="text-center" (click)="deleteFromCart(cartItem.product.id)">
+                <button class="text-red-500 hover:text-red-700">Delete</button>
+            </div>
+        </div>
+
+        <div class="mt-4 text-right">
+            <h3 class="text-xl font-semibold">Net Total: Rs. {{totalAmount}}.00</h3>
+            <button class="text-white font-bold py-2 px-4 rounded mt-6"
+                [ngClass]="{'bg-blue-500 hover:bg-blue-700': cartData[0].cartItems.length > 0, 'bg-gray-500 cursor-not-allowed': cartData[0].cartItems.length === 0}"
+                [disabled]="cartData[0].cartItems.length === 0"
+                (click)="checkout()"
+                >
+                Checkout
+            </button>
+        </div>
+    </div>
+</div>
